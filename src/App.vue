@@ -37,7 +37,24 @@ onMounted(() => {
     <main class="w-full px-[8%] py-6 space-y-6 flex-1">
 
       <!-- En-tête avec résumé & contrôle -->
-      <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 bg-zinc-900/60 border border-zinc-800/80 rounded-2xl backdrop-blur">
+      <header class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 sm:gap-4 sm:p-6 bg-zinc-900/60 border border-zinc-800/80 rounded-2xl backdrop-blur">
+        <div class="w-full aspect-square bg-zinc-800/80 rounded-xl border border-zinc-700/50 flex flex-col items-center justify-center p-3 sm:p-6 gap-1 sm:gap-2">
+          <!-- Chiffre adaptatif pour ne pas déborder sur écran étroit -->
+          <h1 class="w-full text-center text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-bold text-zinc-200 tracking-tighter leading-none whitespace-nowrap">
+            {{ onlineServices }} / {{ totalServices }}
+          </h1>
+
+          <!-- Sous-titre à taille réduite sur mobile -->
+          <p class="w-full text-center text-[10px] sm:text-xs md:text-sm font-semibold text-zinc-400 uppercase tracking-widest truncate">
+            Services opérationnels
+          </p>
+        </div>
+
+        <div class="w-full aspect-square bg-zinc-800/80 rounded-xl border border-zinc-700/50 flex items-center justify-center"></div>
+        <div class="w-full aspect-square bg-zinc-800/80 rounded-xl border border-zinc-700/50 flex items-center justify-center"></div>
+      </header>
+
+      <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 bg-zinc-900/60 border border-zinc-800/80 rounded-2xl backdrop-blur">
         <div>
           <h1 class="text-2xl font-bold tracking-tight">Tableau de bord</h1>
           <p class="text-xs text-zinc-400 mt-1">État des services en temps réel</p>
@@ -60,7 +77,7 @@ onMounted(() => {
             <span>{{ loading ? 'Actualisation...' : `${countdown}s` }}</span>
           </button>
         </div>
-      </header>
+      </section>
 
       <!-- Liste des services -->
       <section class="space-y-3">
